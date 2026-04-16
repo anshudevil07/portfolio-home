@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { FiArrowLeft, FiCheck, FiPlus, FiTrash2 } from "react-icons/fi";
 import "./FormPage.css";
 
-const API = "http://localhost:5000/api";
+const API = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
 const EditPage = () => {
   const { token } = useParams();

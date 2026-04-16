@@ -4,7 +4,7 @@ import { FaLinkedin, FaXTwitter, FaWhatsapp } from "react-icons/fa6";
 import { useState, useEffect } from "react";
 import "./SuccessPage.css";
 
-const API = "http://localhost:5000/api";
+const API = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
 const SuccessPage = () => {
   const { slug } = useParams();
