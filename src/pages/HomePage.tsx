@@ -4,7 +4,7 @@ import { FiPlay, FiEdit3, FiArrowRight, FiX, FiMaximize2, FiSun, FiMoon } from "
 import { useTheme } from "../hooks/useTheme";
 import "./HomePage.css";
 
-const DEMO_URL = "http://localhost:5173";
+const DEMO_URL = "https://3d-portfolio-b835b6nde-anshudevil07s-projects.vercel.app";
 
 const HomePage = () => {
   const navigate = useNavigate();
