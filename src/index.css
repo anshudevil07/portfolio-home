@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Playfair+Display:wght@400;700&display=swap");
+
+/* ── Dark mode (default) ── */
+:root {
+  font-family: "Geist", sans-serif;
+  line-height: 1.5;
+  --accent: #5eead4;
+  --accent2: #22d3ee;
+  --bg: #0a0e17;
+  --bg2: #0f1623;
+  --bg3: #141d2e;
+  --border: rgba(94, 234, 212, 0.2);
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --text: #eae5ec;
+  --text-muted: #8892a4;
+  --shadow: rgba(0, 0, 0, 0.4);
+  --card-hover-shadow: rgba(94, 234, 212, 0.08);
+  --orb1: rgba(94, 234, 212, 0.07);
+  --orb2: rgba(34, 211, 238, 0.05);
+  --input-bg: rgba(255, 255, 255, 0.04);
+  --repeater-bg: rgba(255, 255, 255, 0.02);
+  --review-bg: rgba(255, 255, 255, 0.03);
+  --upload-bg: rgba(255, 255, 255, 0.02);
+  --feat-dot: rgba(255, 255, 255, 0.2);
+  --icon-bg: rgba(255, 255, 255, 0.05);
+  --icon-border: rgba(255, 255, 255, 0.08);
+  --badge-bg: rgba(255, 255, 255, 0.06);
+  --badge-border: rgba(255, 255, 255, 0.08);
+}
+
+/* ── Light mode — Warm Cream + Indigo ── */
+/*
+  Background:  warm cream #faf7f2
+  Surface:     soft white #ffffff
+  Surface 2:   warm grey #f5f0eb
+  Accent:      rich indigo #6366f1
+  Accent 2:    violet #8b5cf6
+  Text:        deep charcoal #1e1b2e
+  Muted:       warm grey #7c7589
+  Border:      soft lavender rgba(99,102,241,0.15)
+*/
+[data-theme="light"] {
+  --accent: #2d6a4f;
+  --accent2: #40916c;
+  --bg: #e8e4df;
+  --bg2: rgba(240,236,231,0.9);
+  --bg3: #d6e8dc;
+  --border: rgba(45, 106, 79, 0.22);
+  --border-subtle: rgba(28, 25, 23, 0.08);
+  --text: #1c1917;
+  --text-muted: #44403c;
+  --shadow: rgba(45, 106, 79, 0.12);
+  --card-hover-shadow: rgba(45, 106, 79, 0.14);
+  --orb1: rgba(82, 183, 136, 0.18);
+  --orb2: rgba(45, 106, 79, 0.12);
+  --input-bg: rgba(240,236,231,0.8);
+  --repeater-bg: rgba(232,228,223,0.6);
+  --review-bg: rgba(232,228,223,0.6);
+  --upload-bg: rgba(232,228,223,0.5);
+  --feat-dot: rgba(45, 106, 79, 0.3);
+  --icon-bg: rgba(45, 106, 79, 0.08);
+  --icon-border: rgba(45, 106, 79, 0.2);
+  --badge-bg: rgba(45, 106, 79, 0.08);
+  --badge-border: rgba(45, 106, 79, 0.18);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+
+[data-theme="light"] body {
+  background: radial-gradient(ellipse 90% 70% at 50% 35%, #f0f5f2 0%, #ddeae4 50%, #c8dbd3 100%);
+  background-attachment: fixed;
+}
+
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; font-family: inherit; }
+input, textarea, select { font-family: inherit; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }

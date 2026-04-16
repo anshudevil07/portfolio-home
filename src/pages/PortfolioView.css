@@ -1,0 +1,208 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap");
+
+/* ── Root: replicate template CSS variables ── */
+.pv-root {
+  --accentColor: #5eead4;
+  --backgroundColor: #0a0e17;
+  --vh: 100svh;
+  --cWidth: calc(100% - 30px);
+  --cMaxWidth: 1920px;
+  background-color: #0a0e17;
+  color: #eae5ec;
+  font-family: "Geist", sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.pv-root h1, .pv-root h2, .pv-root h3,
+.pv-root h4, .pv-root h5, .pv-root h6 {
+  font-family: "Geist", sans-serif;
+}
+
+.pv-root a { color: inherit; text-decoration: inherit; }
+.pv-root a:hover { color: var(--accentColor); }
+
+/* ── State screens ── */
+.pv-state-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #0a0e17;
+  color: #eae5ec;
+  font-family: "Geist", sans-serif;
+  gap: 16px;
+  padding: 24px;
+}
+.pv-spinner {
+  width: 44px; height: 44px;
+  border: 2px solid rgba(94,234,212,0.15);
+  border-top-color: #5eead4;
+  border-radius: 50%;
+  animation: pvSpin 0.8s linear infinite;
+}
+@keyframes pvSpin { to { transform: rotate(360deg); } }
+
+.pv-state-card {
+  background: #0f1623;
+  border: 1px solid rgba(94,234,212,0.15);
+  border-radius: 20px;
+  padding: 48px 40px;
+  text-align: center;
+  max-width: 420px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+.pv-state-card span { font-size: 2.5rem; }
+.pv-state-card h2 { font-size: 1.5rem; font-weight: 700; margin: 0; }
+.pv-state-card p { color: rgba(234,229,236,0.55); font-size: 0.92rem; line-height: 1.6; margin: 0; }
+.pv-state-card button {
+  padding: 12px 28px;
+  background: #5eead4;
+  border: none;
+  border-radius: 10px;
+  color: #0a0e17;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-family: "Geist", sans-serif;
+  transition: background 0.2s;
+}
+.pv-state-card button:hover { background: #4dd9c0; }
+
+/* ── Back button (inside .header) ── */
+.pv-back-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1px solid rgba(94,234,212,0.2);
+  color: rgba(234,229,236,0.6);
+  padding: 5px 12px;
+  border-radius: 7px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  font-family: "Geist", sans-serif;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+.pv-back-btn:hover { border-color: #5eead4; color: #5eead4; }
+
+/* ── Avatar (replaces 3D model) ── */
+.pv-avatar-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 85%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 2;
+  pointer-events: none;
+}
+.pv-avatar-circle {
+  position: relative;
+  width: clamp(200px, 25vw, 380px);
+  height: clamp(200px, 25vw, 380px);
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(94,234,212,0.1), rgba(34,211,238,0.05));
+  border: 1px solid rgba(94,234,212,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.pv-avatar-circle span {
+  font-size: clamp(56px, 7vw, 110px);
+  font-weight: 700;
+  color: rgba(94,234,212,0.6);
+  letter-spacing: 4px;
+  font-family: "Geist", sans-serif;
+  position: relative;
+  z-index: 2;
+}
+/* Glow ring behind avatar */
+.pv-avatar-circle::after {
+  content: "";
+  position: absolute;
+  inset: -30px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(34,211,238,0.15) 0%, transparent 70%);
+  animation: pvGlow 3s ease-in-out infinite;
+  z-index: 1;
+}
+@keyframes pvGlow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+/* Gradient fade at bottom like the template */
+.pv-avatar-circle::before {
+  content: "";
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200%;
+  height: 200px;
+  background: linear-gradient(to bottom, transparent, #0a0e17 70%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* ── section-container replication ── */
+.pv-root .section-container {
+  width: 1300px;
+  max-width: calc(100% - 80px);
+  margin: 0 auto;
+}
+
+/* ── Work link inside carousel ── */
+.pv-work-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  color: #5eead4;
+  border-bottom: 1px solid rgba(94,234,212,0.3);
+  padding-bottom: 2px;
+  transition: border-color 0.2s;
+  text-decoration: none;
+  margin-top: 8px;
+}
+.pv-work-link:hover { border-color: #5eead4; color: #5eead4; }
+
+/* ── Image placeholder ── */
+.pv-img-placeholder {
+  width: 100%;
+  max-width: 400px;
+  height: 260px;
+  background: rgba(94,234,212,0.04);
+  border: 1px solid rgba(94,234,212,0.12);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  font-weight: 700;
+  color: rgba(94,234,212,0.2);
+  font-family: "Geist", sans-serif;
+}
+
+/* ── Responsive overrides ── */
+@media screen and (min-width: 768px) {
+  .pv-root { --cWidth: 94%; }
+}
+@media only screen and (max-width: 1600px) {
+  .pv-root .section-container { width: 1200px; max-width: calc(100% - 160px); }
+}
+@media only screen and (max-width: 1400px) {
+  .pv-root .section-container { width: 900px; }
+}
+@media only screen and (max-width: 900px) {
+  .pv-root .section-container { width: 500px; max-width: var(--cWidth); }
+}
