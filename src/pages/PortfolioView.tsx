@@ -13,7 +13,7 @@ import "./template-styles/Contact.css";
 import "./template-styles/style.css";
 import "./PortfolioView.css";
 
-const API = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+const API = import.meta.env.VITE_API_URL || "https://portfolio-backend-d241lvixv-anshudevil07s-projects.vercel.app/api";
 
 interface Work { title: string; description: string; link: string; image: string; }
 interface CareerItem { company: string; role: string; duration: string; description: string; }
