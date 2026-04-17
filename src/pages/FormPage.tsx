@@ -5,7 +5,8 @@ import { uploadFile } from "../utils/upload";
 import { useTheme } from "../hooks/useTheme";
 import "./FormPage.css";
 
-const API = import.meta.env.VITE_API_URL || "https://portfolio-backend-d241lvixv-anshudevil07s-projects.vercel.app/api";
+const API = (import.meta.env.VITE_API_URL || "").trim() 
+  || "https://portfolio-backend-d241lvixv-anshudevil07s-projects.vercel.app/api";
 const STEPS = ["Personal", "Skills", "Projects", "Career", "Review"];
 
 type Work = { title: string; description: string; link: string; image: string };
@@ -58,6 +59,9 @@ const FormPage = () => {
     setSlugStatus("checking");
     if (slugTimer.current) clearTimeout(slugTimer.current);
     slugTimer.current = setTimeout(async () => {
+       console.log("API:", API);
+       console.log("Slug API:", `${API}/portfolio/check-slug/${clean}`);
+
       const res = await fetch(`${API}/portfolio/check-slug/${clean}`);
       const data = await res.json();
       setSlugStatus(data.available ? "available" : "taken");
@@ -131,6 +135,7 @@ const FormPage = () => {
   };
 
   const submit = async () => {
+    console.log("API URL:", API);
     setLoading(true); setError("");
     try {
       const res = await fetch(`${API}/portfolio/submit`, {
