@@ -4,7 +4,8 @@ import { FaLinkedin, FaXTwitter, FaWhatsapp } from "react-icons/fa6";
 import { useState, useEffect } from "react";
 import "./SuccessPage.css";
 
-const API = import.meta.env.VITE_API_URL || "https://portfolio-backend-d241lvixv-anshudevil07s-projects.vercel.app/api";
+const API = import.meta.env.VITE_API_URL || "https://portfolio-backend-tan-kappa.vercel.app/api";
+const PORTFOLIO_BASE = import.meta.env.VITE_3D_PORTFOLIO_URL || "https://3d-portfolio-red-ten.vercel.app";
 
 const SuccessPage = () => {
   const { slug } = useParams();
@@ -13,7 +14,7 @@ const SuccessPage = () => {
   const [qrCode, setQrCode] = useState<string>("");
   const [qrLoading, setQrLoading] = useState(true);
 
-  const portfolioUrl = `https://3d-portfolio-b835b6nde-anshudevil07s-projects.vercel.app/portfolio/${slug}`;
+  const portfolioUrl = `${PORTFOLIO_BASE}/portfolio/${slug}`;
   const editToken = localStorage.getItem(`edit_token_${slug}`);
 
   useEffect(() => {
