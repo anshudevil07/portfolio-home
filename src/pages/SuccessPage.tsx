@@ -13,7 +13,7 @@ const SuccessPage = () => {
   const [qrCode, setQrCode] = useState<string>("");
   const [qrLoading, setQrLoading] = useState(true);
 
-  const portfolioUrl = `http://localhost:5173/portfolio/${slug}`;
+  const portfolioUrl = `https://3d-portfolio-b835b6nde-anshudevil07s-projects.vercel.app/portfolio/${slug}`;
   const editToken = localStorage.getItem(`edit_token_${slug}`);
 
   useEffect(() => {
