@@ -361,7 +361,21 @@ const PortfolioView = () => {
               {data.email && <a href={`mailto:${data.email}`} className="contact-social">Email <MdArrowOutward /></a>}
             </div>
             <div className="contact-box">
-              <h2>Designed and Developed<br />by <span>{data.name}</span></h2>
+              <h2>
+                Designed and Developed<br />by{" "}
+                <a 
+                  href="https://www.linkedin.com/in/himanshu-palariya-639852240/" 
+                  target="_blank" 
+                  rel="noreferrer"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  <span style={{ cursor: "pointer", transition: "opacity 0.3s" }} 
+                        onMouseEnter={(e) => e.currentTarget.style.opacity = "0.7"}
+                        onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}>
+                    Himanshu Palariya
+                  </span>
+                </a>
+              </h2>
               <h5><MdCopyright /> 2026</h5>
             </div>
           </div>
